@@ -1,0 +1,51 @@
+package com.azahartech.eventdev.vista;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class VistaDashboard extends JFrame {
+
+    public VistaDashboard() {
+        this.setTitle("EventDEV - Catálogo de eventos");
+        this.setSize(800, 600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+
+        initUI();
+    }
+
+    private void initUI() {
+        Container lienzo = this.getContentPane();
+        lienzo.setLayout(new BorderLayout(5, 5));
+
+        // --- ZONA WEST: Barra lateral ---
+        JPanel barraLateral = new JPanel();
+        barraLateral.setBackground(Color.LIGHT_GRAY);
+        barraLateral.setPreferredSize(new Dimension(140, 0));
+        barraLateral.setLayout(new GridLayout(10, 1));
+        barraLateral.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+        JButton btnCatalogo = new JButton("Catálogo");
+        JButton btnMisEntradas = new JButton("Mis entradas");
+        JButton btnPerfil = new JButton("Perfil");
+        JButton btnSalir = new JButton("Salir");
+
+        barraLateral.add(btnCatalogo);
+        barraLateral.add(btnMisEntradas);
+        barraLateral.add(btnPerfil);
+        barraLateral.add(btnSalir);
+
+        lienzo.add(barraLateral, BorderLayout.WEST);
+
+        // --- ZONA SOUTH: Barra de estado ---
+        JPanel barraEstado = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel lblUsuario = new JLabel("Usuario: Invitado");
+        barraEstado.add(lblUsuario);
+        lienzo.add(barraEstado, BorderLayout.SOUTH);
+
+        // --- ZONA CENTER: vacía por ahora ---
+        JPanel panelCentral = new JPanel();
+        panelCentral.setBackground(Color.WHITE);
+        lienzo.add(panelCentral, BorderLayout.CENTER);
+    }
+}

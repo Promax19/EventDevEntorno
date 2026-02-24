@@ -43,7 +43,6 @@ public abstract class Evento implements Exportable {
     }
 
     // Getters
-
     public String getNombre() {
         return nombre;
     }
@@ -74,8 +73,6 @@ public abstract class Evento implements Exportable {
 
 
     // Setters
-
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
