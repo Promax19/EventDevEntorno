@@ -43,9 +43,28 @@ public class VistaDashboard extends JFrame {
         barraEstado.add(lblUsuario);
         lienzo.add(barraEstado, BorderLayout.SOUTH);
 
-        // --- ZONA CENTER: vacía por ahora ---
-        JPanel panelCentral = new JPanel();
-        panelCentral.setBackground(Color.WHITE);
-        lienzo.add(panelCentral, BorderLayout.CENTER);
+        // --- ZONA CENTER: Lista de tarjetas con scroll ---
+        JPanel pnlLista = new JPanel();
+        pnlLista.setLayout(new GridLayout(0, 1, 0, 10));
+        pnlLista.setBackground(Color.WHITE);
+        pnlLista.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+// Añadimos tarjetas de prueba
+        String[] eventos = {
+                "Concierto 1", "Concierto 2", "Concierto 3",
+                "Teatro A", "Teatro B", "Festival Rock",
+                "Jazz Night", "Ópera Carmen", "Stand-up Comedy",
+                "Ballet Clásico", "Flamenco Show"
+        };
+
+        for (String evento : eventos) {
+            pnlLista.add(new TarjetaEvento(evento, "20/05/2026", "145,00€"));
+        }
+
+        JScrollPane scroll = new JScrollPane(pnlLista);
+        scroll.getVerticalScrollBar().setUnitIncrement(16);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        lienzo.add(scroll, BorderLayout.CENTER);
     }
 }
