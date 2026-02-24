@@ -18,7 +18,6 @@ public class VistaDashboard extends JFrame {
         Container lienzo = this.getContentPane();
         lienzo.setLayout(new BorderLayout(5, 5));
 
-        // --- ZONA WEST: Barra lateral ---
         JPanel barraLateral = new JPanel();
         barraLateral.setBackground(Color.LIGHT_GRAY);
         barraLateral.setPreferredSize(new Dimension(140, 0));
@@ -37,19 +36,18 @@ public class VistaDashboard extends JFrame {
 
         lienzo.add(barraLateral, BorderLayout.WEST);
 
-        // --- ZONA SOUTH: Barra de estado ---
         JPanel barraEstado = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel lblUsuario = new JLabel("Usuario: Invitado");
         barraEstado.add(lblUsuario);
         lienzo.add(barraEstado, BorderLayout.SOUTH);
 
-        // --- ZONA CENTER: Lista de tarjetas con scroll ---
+
         JPanel pnlLista = new JPanel();
         pnlLista.setLayout(new GridLayout(0, 1, 0, 10));
         pnlLista.setBackground(Color.WHITE);
         pnlLista.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-// Añadimos tarjetas de prueba
+//EVENTOS
         String[] eventos = {
                 "Concierto 1", "Concierto 2", "Concierto 3",
                 "Teatro A", "Teatro B", "Festival Rock",
